@@ -1,14 +1,10 @@
-import json
-
-from util import generate_qr
+from flask import Flask 
 
 
-filename = "devices.json"
-with open(filename) as fcc_file:
-    fcc_data = json.load(fcc_file)
+app = Flask(__name__)
 
-print(fcc_data)
-
-for A in fcc_data:
-    print(A)
-    generate_qr(A)
+@app.route('/') 
+def hello() -> str: 
+    return 'Hello world from Flask!'
+ 
+app.run()
