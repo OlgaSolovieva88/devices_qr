@@ -1,0 +1,20 @@
+[
+    {
+        "label": "Os1",
+        "man": "Germany",
+        "name": "oscilloscope",
+        "type": "RTO64"
+    },
+    {
+        "label": "Tm1",
+        "man": "Russia",
+        "name": "sensor",
+        "type": "Mit8"
+    },
+    {
+        "label": "Vtm1",
+        "man": "Taiwan",
+        "name": "voltmeter",
+        "type": "GDM-78341"
+    }
+]
