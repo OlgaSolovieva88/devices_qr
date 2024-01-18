@@ -1,10 +1,10 @@
-from flask import Flask 
+from flask import Flask, render_template
 
 
 app = Flask(__name__)
 
 @app.route('/') 
-def hello() -> str: 
-    return 'Hello world from Flask!'
+def index() -> str: 
+    return render_template('index.html')
  
 app.run()
