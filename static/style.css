@@ -9,3 +9,11 @@ padding-left: 0; /* Отступ слева в браузере Firefox, Safari,
 a { 
     text-decoration: none; /* Отменяем подчеркивание у ссылки */
    } 
+
+ a {
+    font-size: 30px;
+   }
+
+h2 {
+    text-align: center
+    }
