@@ -10,10 +10,11 @@ a {
     text-decoration: none; /* Отменяем подчеркивание у ссылки */
    } 
 
- a {
+a {
     font-size: 30px;
    }
 
 h2 {
-    text-align: center
+    text-align: center;
+    font-size: 60px;
     }
