@@ -1,11 +1,23 @@
 {% extends 'base.html' %}
 
-{% block body %} 
+{% block nav %}
+<div class="navbar">
+    <ul>
+        <li>
+        <a href="#">Добавить новый прибор</a>
+        </li> 
+    </ul>
+</div>  
+{% endblock %}
+
+
+{% block header%}
     <div class="header">
         <h2>Приборы</h2>
-        <button disabled>Добавить новый прибор</button>
-    </div>
+{% endblock %}
 
+
+{% block body %} 
     <div class="content">
         <ul>
             <li>
