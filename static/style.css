@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
     }
 
     html,
@@ -22,23 +23,24 @@
     }
     
     .navbar {
-    background-color: aquamarine;
+    background-color:  #d1d1dd;
     width: 500px;
     }
 
     .header {
-    background-color: chocolate;
+    background-color:  #46464b;
     height: 80px;
     width: 100%;
+    color: #d1d1dd;
     }
 
     body {
-        background-color: bisque;
+        background-color:  #ffffff;
         height: 100%;
         width: 100%;
     }
 
-    .content {
+    .body {
     padding-top: 10px;
     padding-left: 10px;
     }
@@ -64,3 +66,19 @@ h2 {
     font-size: 60px;
     }
     
+.nav-item {
+    padding: 10px;
+    background-color: #97979f;
+    color: white;
+    }
+
+.nav-link {
+    font-size: 28px;
+    color: #1b1b1d;
+    font-weight: 600;
+    font-family: sans-serif;
+    }
+
+.nav-item:hover {
+    background-color: #7c7c81;
+    }
