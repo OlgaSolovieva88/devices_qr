@@ -1,20 +1,80 @@
 [
     {
-        "label": "Os1",
-        "man": "Germany",
-        "name": "oscilloscope",
-        "type": "RTO64"
+        "dev_type": "СИ",
+        "c_type": "Осциллограф",
+        "model": "RTO6",
+        "modification": "RTO64",
+        "c_regnum": "83272-21",
+        "man_id": "110279",
+        "c_class": "35",
+        "manufacturer": "«Rohde & Schwarz zavod Vimperk, s.r.o.»",
+        "work_start": "2022",
+        "pov_per": "1 год",
+        "pov_num": "С-МА/26-01-2023/218101926"
     },
     {
-        "label": "Tm1",
-        "man": "Russia",
-        "name": "sensor",
-        "type": "Mit8"
+        "dev_type": "Э",
+        "c_type": "Гиря",
+        "model": "Класс точности М1",
+        "modification": "20 г М1",
+        "c_regnum": "58020-14",
+        "man_id": "16713",
+        "c_class": "28",
+        "manufacturer": "ООО «Стандарт»",
+        "work_start": "2022",
+        "pov_per": "1 год",
+        "pov_num": "С-МА/19-04-2023/240128102"
     },
     {
-        "label": "Vtm1",
-        "man": "Taiwan",
-        "name": "voltmeter",
-        "type": "GDM-78341"
+        "dev_type": "СК",
+        "c_type": "Микроскоп",
+        "model": "Альтами СМ0745-Т",
+        "modification": null,
+        "c_regnum": null,
+        "man_id": "А224299",
+        "c_class": null,
+        "manufacturer": "ООО «Альтами»",
+        "work_start": "2022",
+        "check_per": "1 год",
+        "check_protocol": "54-2023"
+    },
+    {
+        "dev_type": "И",
+        "c_type": "Источник питания",
+        "model": "PSP-405",
+        "modification": null,
+        "c_regnum": "25347-11",
+        "man_id": "GEV111141",
+        "c_class": "34",
+        "manufacturer": "«Good Will Instrument Co., Ltd.»",
+        "work_start": "2021",
+        "check_per": "1 год",
+        "check_protocol": "50-2023"
+    },
+    {
+        "dev_type": "ТУИФ",
+        "c_type": "Тестер механических испытаний",
+        "model": "УМС-ТМИ-01/50/500",
+        "modification": null,
+        "c_regnum": null,
+        "man_id": "390922",
+        "c_class": null,
+        "manufacturer": "ООО «Эко-тех Микроэлектроника»",
+        "work_start": "2022",
+        "check_per": "1 год",
+        "check_protocol": "56-2023"
+    },
+    {
+        "dev_type": "ИО",
+        "c_type": "Система температурных испытаний",
+        "model": "ТА-5000",
+        "modification": "null",
+        "c_regnum": "null",
+        "man_id": "TA5КА11-1704103",
+        "test_type": "испытания на воздействие температуры в диапазоне от минус 80 °С до 225 °С",
+        "manufacturer": "MPI",
+        "work_start": "2017",
+        "att_per": "1 год",
+        "att_protocol": "55-2023"
     }
 ]

@@ -21,7 +21,14 @@
 {% block body %} 
     <div class="body">
         <ul>
-            <li>
+            {% for device in devices %}
+                <li>
+                    <span class="span">{{devices.index(device)+1}}</span>
+                    <a href="/device/{{device.id}}">{{device.label}}</a>
+                    <a href="#" class="dev-delete-lnk"><img src="{{ url_for('static',filename='imgs/delete_icon.svg') }}" alt=""></a>
+                </li>
+            {% endfor %}
+            <!-- <li>
                 <a href="/device/1">Os1</a>
                 <a href="#" class="dev-delete-lnk"><img src="{{ url_for('static',filename='imgs/delete_icon.svg') }}" alt=""></a>
             </li>
@@ -34,7 +41,7 @@
             <li>
                 <a href="/device/1">Vtm1</a>
                 <a href="#" class="dev-delete-lnk"><img src="{{ url_for('static',filename='imgs/delete_icon.svg') }}" alt=""></a>
-            </li>
+            </li> -->
         </ul>
     </div>
 {% endblock %}

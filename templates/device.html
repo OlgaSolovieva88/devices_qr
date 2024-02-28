@@ -21,21 +21,11 @@
 {% block body %} 
     <div class="body">
         <table>
-            <tr>
-                <td>label</td><td>Os1</td>
-            </tr>
-
-            <tr>
-                <td>man</td><td>Germany</td>
-            </tr>
-
-            <tr>
-                <td>name</td><td>oscilloscope</td>
-            </tr>
-
-            <tr>
-                <td>type</td><td>RTO64</td>
-            </tr>
+            {% for k, v in dev_dict.items() %}
+                <tr>
+                    <td>{{k}}</td><td>{{v}}</td>
+                </tr>
+            {% endfor %}
         </table>
     </div>
 {% endblock %}

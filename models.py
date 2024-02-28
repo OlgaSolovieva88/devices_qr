@@ -19,10 +19,10 @@ class DevTypes(Base):
     name = Column(String, comment='Наименование вида оборудования')
 
 class CTypes(Base):
-    """Таблица наименований типов СИ.
+    """Таблица наименований типов СИ (категория)
     Например: осциллографы цифровые, анализаторы спектра и тд."""
     
-    __tablename__ = "с_types"
+    __tablename__ = "c_types"
   
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     name = Column(String, comment='Наименование типа СИ')
@@ -38,6 +38,7 @@ class Devices(Base):
     c_regnum = Column(String, comment='регистрационный номер типа СИ (номер в госреестре)')
     man_id = Column(Integer, comment='заводской номер оборудования')
     c_class = Column(Integer, comment='класс оборудования по виду измерений')
+    test_type = Column(String, comment='виды испытаний')
     manufacturer = Column(String, comment='производитель/страна')
     work_start = Column(Integer, comment='год ввода в эксплуатацию')
     pov_per = Column(Integer, comment='межповерочный интервал (в годах)')
@@ -52,5 +53,22 @@ class Devices(Base):
 
     dev_type_id = Column(Integer, ForeignKey('dev_types.id'))
     dev_type = relationship("DevTypes", backref=backref("devices", uselist=False))
-    с_type_id = Column(Integer, ForeignKey('с_types.id'))
-    с_type = relationship("CTypes", backref=backref("devices", uselist=False))
+    c_type_id = Column(Integer, ForeignKey('c_types.id'))
+    c_type = relationship("CTypes", backref=backref("devices", uselist=False))
+
+    def to_dict(self):
+        dev_dict = {}
+        for k, v in self.__dict__.items():
+            if k.startswith('_'):
+                continue
+            dev_dict[k] = v
+
+        return dev_dict
+
+    @property
+    def label(self):
+        return f'{self.c_type.name} {self.modification or self.model}'
+        if self.modification is None:
+            return f'{self.model} {self.manufacturer}'
+
+        return f'{self.modification} {self.manufacturer}'
