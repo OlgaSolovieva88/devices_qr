@@ -25,6 +25,6 @@ def index() -> str:
 @app.route('/device/<id>') 
 def device(id) -> str:
     device = session.query(Devices).filter_by(id=id).first()
-    return render_template('device.html', dev_dict=device.to_dict())
+    return render_template('device.html', device=device)
  
 app.run()

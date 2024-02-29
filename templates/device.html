@@ -13,7 +13,7 @@
 
 {% block header%}
     <div class="header">
-        <h2>Os1</h2>
+        <h2>{{device.label}}</h2>
     </div>
 {% endblock %}
 
@@ -21,7 +21,7 @@
 {% block body %} 
     <div class="body">
         <table>
-            {% for k, v in dev_dict.items() %}
+            {% for k, v in device.to_dict().items() %}
                 <tr>
                     <td>{{k}}</td><td>{{v}}</td>
                 </tr>

@@ -1,5 +1,7 @@
 from sqlalchemy.orm import DeclarativeBase, relationship, backref
 from sqlalchemy import  Column, Integer, String, Date, ForeignKey
+
+from consts import DEVTYPE_DEVICE_MAP
   
 class Base(DeclarativeBase): pass
   
@@ -58,12 +60,19 @@ class Devices(Base):
 
     def to_dict(self):
         dev_dict = {}
-        for k, v in self.__dict__.items():
+        for k, v in list(self.__dict__.items()):
+            print(f'{k} {v}')
             if k.startswith('_'):
                 continue
-            dev_dict[k] = v
+            # 
+            if k not in DEVTYPE_DEVICE_MAP[self.dev_type.name]:
+                continue
+
+            dev_dict[k] = v.name if isinstance(v, (DevTypes, CTypes)) else v
 
         return dev_dict
+    
+
 
     @property
     def label(self):
