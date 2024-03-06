@@ -26,5 +26,10 @@ def index() -> str:
 def device(id) -> str:
     device = session.query(Devices).filter_by(id=id).first()
     return render_template('device.html', device=device)
+
+@app.route('/device_info/<id>') 
+def device_info(id) -> str:
+    device = session.query(Devices).filter_by(id=id).first()
+    return render_template('device_info.html', device=device)
  
-app.run()
+app.run(host='0.0.0.0')

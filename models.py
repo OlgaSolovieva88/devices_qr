@@ -2,6 +2,7 @@ from sqlalchemy.orm import DeclarativeBase, relationship, backref
 from sqlalchemy import  Column, Integer, String, Date, ForeignKey
 
 from consts import DEVTYPE_DEVICE_MAP
+from utils import generate_qr
   
 class Base(DeclarativeBase): pass
   
@@ -72,8 +73,6 @@ class Devices(Base):
 
         return dev_dict
     
-
-
     @property
     def label(self):
         return f'{self.c_type.name} {self.modification or self.model}'
@@ -81,3 +80,8 @@ class Devices(Base):
             return f'{self.model} {self.manufacturer}'
 
         return f'{self.modification} {self.manufacturer}'
+    
+    @property
+    def qr(self):
+        return generate_qr(int(self.id))
+

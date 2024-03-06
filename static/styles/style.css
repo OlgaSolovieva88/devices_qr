@@ -41,8 +41,35 @@
     }
 
     .body {
-    padding-top: 10px;
-    padding-left: 10px;
+        display: flex;
+        padding: 10px;
+    }
+
+    .table {
+        float: left;
+        overflow: hidden;
+        width: 75%;
+        padding: 5px;    
+    }
+
+    .table_info {
+        float: left;
+        overflow: hidden;
+        padding: 5px;    
+    }
+
+    .bodyqr {
+        background-color: #97979f;
+        height: 480px;
+        width: 500px;
+        overflow: hidden;
+        padding: 5px;
+        margin-top: 6px;
+    }
+
+    .dev_qr_img {
+        height: 100%;
+        width: 100%;
     }
 
 li {

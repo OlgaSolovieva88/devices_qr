@@ -1,13 +1,7 @@
 {% extends 'base.html' %}
 
 {% block nav %}
-<div class="navbar">
-    <ul>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Добавить новый прибор</a>
-        </li> 
-    </ul>
-</div>  
+
 {% endblock %}
 
 
@@ -20,16 +14,12 @@
 
 {% block body %} 
     <div class="body">
-        <table class="table">
+        <table class="table_info">
             {% for k, v in device.to_dict().items() %}
                 <tr>
                     <td>{{k}}</td><td>{{v}}</td>
                 </tr>
             {% endfor %}
         </table>
-
-        <div class="bodyqr">
-            <img class="dev_qr_img" src="{{device.qr}}" />
-        </div>
     </div>
 {% endblock %}
