@@ -1,0 +1,58 @@
+- fields:
+  - dev_type:
+    title: "Вид оборудования для мониторинга и измерений"
+    layout: select
+  - c_type:
+    title: "Категория оборудования"
+    layout: select
+  - model:
+    title: "Модель оборудования"
+    layout: text
+  - modification:
+    title: "Модификация"
+    layout: text
+  - c_regnum:
+    title: "Регистрационный номер типа СИ"
+    layout: text
+  - man_id:
+    title: "Заводской номер"
+    layout: number
+  - c_class:
+    title: "Вид измерений"
+    layout: number
+  - test_type:
+    title: "Вид испытаний"
+    layout: text
+  - manufacturer:
+    title: "Производитель"
+    layout: text
+  - work_start:
+    title: "Год ввода в эксплуатацию"
+    layout: number
+  - pov_per:
+    title: "Межповерочный интервал (лет)"
+    layout: number
+  - pov_num:
+    title: "Номер свидетельства"
+    layout: text
+  - pov_ext:
+    title: "Дата окончания действия срока поверки"
+    layout: date
+  - check_per:
+    title: "Межпроверочный интервал (лет)"
+    layout: number
+  - check_protocol:
+    title: "Номер протокола"
+    layout: text
+  - check_ext:
+    title: "Дата окончания действия срока проверки"
+    layout: date
+  - att_per:
+    title: "Межаттестационный период (лет)"
+    layout: number
+  - att_protocol:
+    title: "Номер протокола/ аттестата"
+    layout: text
+  - att_ext:
+    title: "Дата окончания действия срока аттестации"
+    layout: date
