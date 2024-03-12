@@ -4,6 +4,8 @@ from flask import Flask, render_template
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+
+from context import Context
 from models import Base, Devices
 
 ROOTDIR = os.path.dirname(os.path.abspath(__file__))
@@ -12,6 +14,8 @@ engine = create_engine(f'sqlite:///{ROOTDIR}/dev_qr.db',
     echo=False)
 
 Base.metadata.create_all(engine) 
+
+c = Context()
 
 Session = sessionmaker(bind=engine)
 session = Session()

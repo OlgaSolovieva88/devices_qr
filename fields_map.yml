@@ -2,9 +2,11 @@
   - dev_type:
     title: "Вид оборудования для мониторинга и измерений"
     layout: select
+    source: DevTypes
   - c_type:
     title: "Категория оборудования"
     layout: select
+    source: CTypes
   - model:
     title: "Модель оборудования"
     layout: text
@@ -14,15 +16,31 @@
   - c_regnum:
     title: "Регистрационный номер типа СИ"
     layout: text
+    show:
+      attr: dev_type.name
+      eq: 
+        - "СИ"
+        - "Э"
+        - "И"
   - man_id:
     title: "Заводской номер"
     layout: number
   - c_class:
     title: "Вид измерений"
     layout: number
+    show:
+      attr: dev_type.name
+      eq: 
+        - "СИ"
+        - "Э"
+        - "И"
   - test_type:
     title: "Вид испытаний"
     layout: text
+    show:
+      attr: dev_type.name
+      eq: 
+        - "ИО"
   - manufacturer:
     title: "Производитель"
     layout: text
@@ -32,27 +50,72 @@
   - pov_per:
     title: "Межповерочный интервал (лет)"
     layout: number
+    show:
+      attr: dev_type.name
+      eq: 
+        - "СИ"
+        - "Э"
   - pov_num:
     title: "Номер свидетельства"
     layout: text
+    show:
+      attr: dev_type.name
+      eq: 
+        - "СИ"
+        - "Э"
   - pov_ext:
     title: "Дата окончания действия срока поверки"
     layout: date
+    show:
+      attr: dev_type.name
+      eq: 
+        - "СИ"
+        - "Э"
   - check_per:
     title: "Межпроверочный интервал (лет)"
     layout: number
+    show:
+      attr: dev_type.name
+      eq: 
+        - "СК"
+        - "И"
+        - "ТУИФ"
   - check_protocol:
     title: "Номер протокола"
     layout: text
+    show:
+      attr: dev_type.name
+      eq: 
+        - "СК"
+        - "И"
+        - "ТУИФ"
   - check_ext:
     title: "Дата окончания действия срока проверки"
     layout: date
+    show:
+      attr: dev_type.name
+      eq: 
+        - "СК"
+        - "И"
+        - "ТУИФ"
   - att_per:
     title: "Межаттестационный период (лет)"
     layout: number
+    show:
+      attr: dev_type.name
+      eq: 
+        - "ИО"
   - att_protocol:
     title: "Номер протокола/ аттестата"
     layout: text
+    show:
+      attr: dev_type.name
+      eq: 
+        - "ИО"
   - att_ext:
     title: "Дата окончания действия срока аттестации"
     layout: date
+    show:
+      attr: dev_type.name
+      eq: 
+        - "ИО"
