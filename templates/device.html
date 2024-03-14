@@ -13,7 +13,7 @@
 
 {% block header%}
     <div class="header">
-        <h2>{{device.label}}</h2>
+        <h2>{{label}}</h2>
     </div>
 {% endblock %}
 
@@ -21,15 +21,32 @@
 {% block body %} 
     <div class="body">
         <table class="table">
-            {% for k, v in device.to_dict().items() %}
+            {% for d in dev_dict %}
                 <tr>
-                    <td>{{k}}</td><td>{{v}}</td>
+                    <td>{{d['title']}}</td>
+                    <td>
+                        {% if d['layout'] == 'text' %}
+                            <input type="text" name="" id="" value="{{ d['value'] }}"> 
+                        {% endif %}
+
+                        {% if d['layout'] == 'number' %}
+                            <input type="number" name="" id="" value="{{ d['value'] }}">
+                        {% endif %}
+
+                        {% if d['layout'] == 'date' %}
+                            <input type="date" name="" id="" value="{{ d['value'] }}">
+                        {% endif %}
+
+                        {% if d['layout'] == 'select' %}
+                            <select name="" id=""></select>
+                        {% endif %}
+                    </td>
                 </tr>
             {% endfor %}
         </table>
 
         <div class="bodyqr">
-            <img class="dev_qr_img" src="{{device.qr}}" />
+            <img class="dev_qr_img" src="{{qr}}" />
         </div>
     </div>
 {% endblock %}

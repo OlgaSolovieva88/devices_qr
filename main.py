@@ -7,6 +7,7 @@ from sqlalchemy.orm import sessionmaker
 
 from context import Context
 from models import Base, Devices
+from utils import to_dict
 
 ROOTDIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -29,7 +30,8 @@ def index() -> str:
 @app.route('/device/<id>') 
 def device(id) -> str:
     device = session.query(Devices).filter_by(id=id).first()
-    return render_template('device.html', device=device)
+    
+    return render_template('device.html', dev_dict=to_dict(device), label=device.label, qr=device.qr)
 
 @app.route('/device_info/<id>') 
 def device_info(id) -> str:
