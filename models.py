@@ -1,9 +1,15 @@
+from datetime import datetime
+
 from sqlalchemy.orm import DeclarativeBase, relationship, backref
 from sqlalchemy import  Column, Integer, String, Date, ForeignKey
 
 from consts import DEVTYPE_DEVICE_MAP
+from context import Context
 from utils import generate_qr
   
+
+c = Context()
+
 class Base(DeclarativeBase): pass
   
 class DevTypes(Base):
@@ -58,6 +64,43 @@ class Devices(Base):
     dev_type = relationship("DevTypes", backref=backref("devices", uselist=False))
     c_type_id = Column(Integer, ForeignKey('c_types.id'))
     c_type = relationship("CTypes", backref=backref("devices", uselist=False))
+
+    def __setattr__(self, name, value):
+        try:
+            column_type = getattr(self.__class__, name).type
+            if isinstance(column_type, Date) and value:
+                object.__setattr__(self, name, datetime.strptime(value, '%Y-%m-%d').date())
+            elif isinstance(column_type, Integer) and value:
+                object.__setattr__(self, name, int(value))
+            elif isinstance(column_type, String):
+                object.__setattr__(self, name, str(value))
+        except AttributeError:
+            if name == 'c_type':
+                object.__setattr__(self, name, self._get_c_type_by_id_str(value))
+            elif name == 'dev_type':
+                object.__setattr__(self, name, self._get_dev_type_by_id_str(value))
+            else:
+                object.__setattr__(self, name, value)
+        except TypeError:
+            if name == 'c_type':
+                object.__setattr__(self, name, self._get_c_type_by_id_str(value))
+            elif name == 'dev_type':
+                object.__setattr__(self, name, self._get_dev_type_by_id_str(value))
+            else:
+                print(f'Unknown type of "{name}" "{value}", type is {type(value)}')
+                pass
+
+    def _get_dev_type_by_id_str(self, id_str):
+        try:
+            return c.session.query(DevTypes).filter_by(id=int(id_str)).first()            
+        except TypeError:
+            print(f'Wrong value type "{id_str}"{type(id_str)}')
+
+    def _get_c_type_by_id_str(self, id_str):
+        try:
+            return c.session.query(CTypes).filter_by(id=int(id_str)).first()
+        except TypeError:
+            print(f'Wrong value type "{id_str}"{type(id_str)}')
 
     def to_dict(self):
         dev_dict = {}

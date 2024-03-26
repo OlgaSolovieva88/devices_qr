@@ -20,30 +20,44 @@
 
 {% block body %} 
     <div class="body">
-        <table class="table">
-            {% for d in dev_dict %}
-                <tr>
-                    <td>{{d['title']}}</td>
-                    <td>
-                        {% if d['layout'] == 'text' %}
-                            <input type="text" name="" id="" value="{{ d['value'] }}"> 
-                        {% endif %}
+        <form action="" method="post">   
+            <table class="table">
+                {% for d in dev_dict %}
+                    <tr>
+                        <td>{{d['title']}}</td>
+                        <td>
+                            {% if d['layout'] == 'text' %}
+                                <input type="text" name="{{d['name']}}" id="" value="{{ d['value'] }}"> 
+                            {% endif %}
 
-                        {% if d['layout'] == 'number' %}
-                            <input type="number" name="" id="" value="{{ d['value'] }}">
-                        {% endif %}
+                            {% if d['layout'] == 'number' %}
+                                <input type="number" name="{{d['name']}}" id="" value="{{ d['value'] }}">
+                            {% endif %}
 
-                        {% if d['layout'] == 'date' %}
-                            <input type="date" name="" id="" value="{{ d['value'] }}">
-                        {% endif %}
+                            {% if d['layout'] == 'date' %}
+                                <input type="date" name="{{d['name']}}" id="" value="{{ d['value'] }}">
+                            {% endif %}
 
-                        {% if d['layout'] == 'select' %}
-                            <select name="" id=""></select>
-                        {% endif %}
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
+                            {% if d['layout'] == 'select' %}
+                                <select name="{{d['name']}}" id="">
+                                    {% for v in d['data'] %}
+                                        <option value="{{v.id}}" 
+                                        {% if d['value'] == v.name %}
+                                            selected
+                                        {% endif %}
+                                        >{{v.name}}</option>
+                                    {% endfor %}  
+                                </select>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <div> 
+                <input type="submit">
+            </div>
+        </form> 
 
         <div class="bodyqr">
             <img class="dev_qr_img" src="{{qr}}" />

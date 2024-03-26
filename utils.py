@@ -25,7 +25,7 @@ def generate_qr(device_id):
 
 def to_dict(device):
     ret = []
-    for field in c.fields_maps['fieds']:
+    for field in c.fields_maps['fields']:
         ret_dict = copy(field)
         val = getattr(device, ret_dict['name'])
         try:
@@ -33,7 +33,7 @@ def to_dict(device):
         except AttributeError:
             ret_dict['value'] = val or ''
         if field['layout'] == 'select':
-            pass
+            ret_dict['data'] = getattr(c, field['source'].lower())
 
         ret.append(ret_dict)
 
