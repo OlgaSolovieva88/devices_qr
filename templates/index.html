@@ -4,7 +4,8 @@
 <div class="navbar">
     <ul>
         <li class="nav-item">
-            <a class="nav-link" href="#">Добавить новый прибор</a>
+            <a class="nav-link" href="/">Главная</a>
+            <a class="nav-link" href="/add_device">Добавить новый прибор</a>
         </li> 
     </ul>
 </div>  
@@ -25,7 +26,7 @@
                 <li>
                     <span class="span">{{devices.index(device)+1}}</span>
                     <a href="/device/{{device.id}}">{{device.label}}</a>
-                    <a href="#" class="dev-delete-lnk"><img src="{{ url_for('static',filename='imgs/delete_icon.svg') }}" alt=""></a>
+                    <a href="/delete_device/{{device.id}}" class="dev-delete-lnk"><img src="{{ url_for('static',filename='imgs/delete_icon.svg') }}" alt=""></a>
                 </li>
             {% endfor %}
             <!-- <li>

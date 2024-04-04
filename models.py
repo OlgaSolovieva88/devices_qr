@@ -118,7 +118,10 @@ class Devices(Base):
     
     @property
     def label(self):
-        return f'{self.c_type.name} {self.modification or self.model}'
+        try:
+            return f'{self.c_type.name} {self.modification or self.model}'
+        except AttributeError:
+            return 'Новый прибор'
         if self.modification is None:
             return f'{self.model} {self.manufacturer}'
 

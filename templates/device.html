@@ -4,6 +4,7 @@
 <div class="navbar">
     <ul>
         <li class="nav-item">
+            <a class="nav-link" href="/">Главная</a>
             <a class="nav-link" href="#">Добавить новый прибор</a>
         </li> 
     </ul>
@@ -20,7 +21,7 @@
 
 {% block body %} 
     <div class="body">
-        <form action="" method="post">   
+        <form action="/device/{{dev_id}}" method="post">   
             <table class="table">
                 {% for d in dev_dict %}
                     <tr>

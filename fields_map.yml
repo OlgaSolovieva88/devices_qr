@@ -17,11 +17,12 @@ fields:
     title: "Регистрационный номер типа СИ"
     layout: text
     show:
-      attr: dev_type.name
-      eq: 
-        - "СИ"
-        - "Э"
-        - "И"
+      - attr: dev_type.name
+        op: in
+        data: 
+          - "СИ"
+          - "Э"
+          - "И"
   - name: man_id
     title: "Заводской номер"
     layout: number
@@ -29,18 +30,20 @@ fields:
     title: "Вид измерений"
     layout: number
     show:
-      attr: dev_type.name
-      eq: 
-        - "СИ"
-        - "Э"
-        - "И"
+      - attr: dev_type.name
+        op: in
+        data: 
+          - "СИ"
+          - "Э"
+          - "И"
   - name: test_type
     title: "Вид испытаний"
     layout: text
     show:
-      attr: dev_type.name
-      eq: 
-        - "ИО"
+      - attr: dev_type.name
+        op: in
+        data: 
+          - "ИО"
   - name: manufacturer
     title: "Производитель"
     layout: text
@@ -51,71 +54,80 @@ fields:
     title: "Межповерочный интервал (лет)"
     layout: number
     show:
-      attr: dev_type.name
-      eq: 
-        - "СИ"
-        - "Э"
+      - attr: dev_type.name
+        op: in
+        data: 
+          - "СИ"
+          - "Э"
   - name: pov_num
     title: "Номер свидетельства"
     layout: text
     show:
-      attr: dev_type.name
-      eq: 
-        - "СИ"
-        - "Э"
+      - attr: dev_type.name
+        op: in
+        data: 
+          - "СИ"
+          - "Э"
   - name: pov_ext
     title: "Дата окончания действия срока поверки"
     layout: date
     show:
-      attr: dev_type.name
-      eq: 
-        - "СИ"
-        - "Э"
+      - attr: dev_type.name
+        op: in
+        data: 
+          - "СИ"
+          - "Э"
   - name: check_per
     title: "Межпроверочный интервал (лет)"
     layout: number
     show:
-      attr: dev_type.name
-      eq: 
-        - "СК"
-        - "И"
-        - "ТУИФ"
+      - attr: dev_type.name
+        op: in
+        data: 
+          - "СК"
+          - "И"
+          - "ТУИФ"
   - name: check_protocol
     title: "Номер протокола"
     layout: text
     show:
-      attr: dev_type.name
-      eq: 
-        - "СК"
-        - "И"
-        - "ТУИФ"
+      - attr: dev_type.name
+        op: in
+        data: 
+          - "СК"
+          - "И"
+          - "ТУИФ"
   - name: check_ext
     title: "Дата окончания действия срока проверки"
     layout: date
     show:
-      attr: dev_type.name
-      eq: 
-        - "СК"
-        - "И"
-        - "ТУИФ"
+      - attr: dev_type.name
+        op: in
+        data: data
+          - "СК"
+          - "И"
+          - "ТУИФ"
   - name: att_per
     title: "Межаттестационный период (лет)"
     layout: number
     show:
-      attr: dev_type.name
-      eq: 
-        - "ИО"
+      - attr: dev_type.name
+        op: in
+        data: 
+          - "ИО"
   - name: att_protocol
     title: "Номер протокола/ аттестата"
     layout: text
     show:
-      attr: dev_type.name
-      eq: 
-        - "ИО"
+      - attr: dev_type.name
+        op: in
+        data: 
+          - "ИО"
   - name: att_ext
     title: "Дата окончания действия срока аттестации"
     layout: date
     show:
-      attr: dev_type.name
-      eq: 
-        - "ИО"
+      - attr: dev_type.name
+        op: in
+        data: 
+          - "ИО"

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 
 from context import Context
 from models import Base, Devices
@@ -25,7 +25,25 @@ def device(id) -> str:
 
             c.session.commit()
 
-    return render_template('device.html', dev_dict=to_dict(device), label=device.label, qr=device.qr)
+    return render_template('device.html', dev_dict=to_dict(device), dev_id=device.id, label=device.label, qr=device.qr)
+
+@app.route('/add_device')
+def add_device():
+    """Добавление нового прибора
+        Созается объект прибора, сохраняется в БД, отображается через /device/<id>
+    """
+    device = Devices()
+    c.session.add(device)
+    c.session.commit()
+
+    return render_template('device.html', dev_dict=to_dict(device), dev_id=device.id, label=device.label, qr=device.qr)
+
+@app.route('/delete_device/<id>')
+def delete_device(id):
+    c.session.query(Devices).filter(Devices.id==id).delete()
+    c.session.commit()
+
+    return redirect(url_for('index'), code=302)
 
 @app.route('/device_info/<id>') 
 def device_info(id) -> str:
